@@ -32,7 +32,7 @@ RUN curl -k -L -o H2K_HPXML_VERSION.zip https://github.com/canmet-energy/h2k_hpx
     && chmod -R 777 /shared
 
 # Create a CLI entry point
-RUN echo -e '#!/bin/bash\n/h2k_hpxml/bin/h2k2hpxml.py "$@"' > /usr/bin/cli \
+RUN echo '#!/bin/bash\n/h2k_hpxml/bin/h2k2hpxml.py "$@"' > /usr/bin/cli \
     && chmod +x /usr/bin/cli
 
 # Set the virtual environment's Python as the default
