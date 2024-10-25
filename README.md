@@ -72,4 +72,56 @@ To run the CLI using the `docker run` command, follow these steps:
  It will also create a file called 'processing_resutls.csv' which will show the files that succeeded or failed.
 
 
-By following these steps, you can run your CLI commands within a Docker container efficiently.
+Full help is available by issuing the run command with a -h. For example.
+
+```
+PS F:\> docker run -v //c/test:/shared  canmet/h2k_hpxml_container:latest cli run -h
+Usage: h2k2hpxml.py run [OPTIONS]
+
+  Convert and Simulate H2K file to OS/E+.
+
+Options:
+  -i, --input_path TEXT           h2k file or folder containing h2k files.
+  -o, --output_path TEXT          Path to output hpxml files. By default it is
+                                  the same as the input path with a folder
+                                  named output created inside it.
+  --timestep TEXT                 Request monthly output type (ALL, total,
+                                  fuels, enduses, systemuses, emissions,
+                                  emissionfuels, emissionenduses, hotwater,
+                                  loads, componentloads, unmethours,
+                                  temperatures, airflows, weather,
+                                  resilience); can be called multiple times
+  --daily TEXT                    Request daily output type (ALL, total,
+                                  fuels, enduses, systemuses, emissions,
+                                  emissionfuels, emissionenduses, hotwater,
+                                  loads, componentloads, unmethours,
+                                  temperatures, airflows, weather,
+                                  resilience); can be called multiple times
+  --hourly TEXT                   Request hourly output type (ALL, total,
+                                  fuels, enduses, systemuses, emissions,
+                                  emissionfuels, emissionenduses, hotwater,
+                                  loads, componentloads, unmethours,
+                                  temperatures, airflows, weather,
+                                  resilience); can be called multiple times
+  --monthly TEXT                  Request monthly output type (ALL, total,
+                                  fuels, enduses, systemuses, emissions,
+                                  emissionfuels, emissionenduses, hotwater,
+                                  loads, componentloads, unmethours,
+                                  temperatures, airflows, weather,
+                                  resilience); can be called multiple times
+  -l, --add-component-loads       Add component loads.
+  -d, --debug                     Enable debug mode and all extra file
+                                  outputs.
+  -s, --skip-validation           Skip Schema/Schematron validation for faster
+                                  performance
+  -f, --output-format TEXT        Output format for the simulation
+                                  resultsOutput file format type (csv, json,
+                                  msgpack, csv_dview)
+  --add-stochastic-schedules      Add detailed stochastic occupancy schedules
+  --add-timeseries-output-variable TEXT
+                                  Add timeseries output variable; can be
+                                  called multiple times; can be called
+                                  multiple times
+  --do-not-sim                    Convert only, do not run simulation
+  -h, --help                      Show this message and exit.
+```
