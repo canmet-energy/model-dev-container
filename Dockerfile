@@ -1,26 +1,19 @@
 # Base image compatible with the required OpenStudio version
 ARG OPENSTUDIO_VERSION=3.7.0
-FROM canmet/os_standards_devcontainer:${OPENSTUDIO_VERSION} as base
+FROM canmet/os_sdk_container:${OPENSTUDIO_VERSION} AS base
 
 # Define versions for dependencies
 ARG OPENSTUDIO_HPXML_VERSION=1.7.0
-ARG PYTHON_VERSION=3.12
 ARG H2K_HPXML_VERSION=1.7.0.1.1
 
-# Install OpenStudio-HPXML and Python with virtual environment
+# Install OpenStudio-HPXML to /OpenStudio-HPXML
 RUN curl -k -L -o OpenStudio-HPXML-v${OPENSTUDIO_HPXML_VERSION}.zip https://github.com/NREL/OpenStudio-HPXML/releases/download/v${OPENSTUDIO_HPXML_VERSION}/OpenStudio-HPXML-v${OPENSTUDIO_HPXML_VERSION}.zip \
     && unzip OpenStudio-HPXML-v${OPENSTUDIO_HPXML_VERSION}.zip -d / \
     && rm OpenStudio-HPXML-v${OPENSTUDIO_HPXML_VERSION}.zip \
     && chmod -R 777 /OpenStudio-HPXML \
-    && apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends software-properties-common \
-    && add-apt-repository -y ppa:deadsnakes \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends python${PYTHON_VERSION}-venv \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && python${PYTHON_VERSION} -m venv /venv
+    && rm -rf /var/lib/apt/lists/* 
 
-# Install H2K-HPXML and set up the environment
+# Install H2K-HPXML and set up the prefix to use the /venv/bin/python always.
 RUN curl -k -L -o H2K_HPXML_VERSION.zip https://github.com/canmet-energy/h2k_hpxml/archive/refs/heads/${H2K_HPXML_VERSION}.zip \
     && unzip H2K_HPXML_VERSION.zip -d /temp \
     && mv /temp/h2k_hpxml-${H2K_HPXML_VERSION} /h2k_hpxml \
