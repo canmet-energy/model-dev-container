@@ -75,7 +75,7 @@ To run the CLI using the `docker run` command, follow these steps:
 Full help is available by issuing the run command with a -h. For example.
 
 ```
-PS F:\> docker run -v //c/test:/shared  canmet/h2k_hpxml_container:latest cli run -h
+PS F:\> docker run -v //c/test:/shared canmet/model_dev_container:3.7.0 cli run -h
 Usage: h2k2hpxml.py run [OPTIONS]
 
   Convert and Simulate H2K file to OS/E+.
