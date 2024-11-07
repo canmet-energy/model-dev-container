@@ -1,5 +1,5 @@
 # Container Versions
-To simplify development, we standardize the versions used across our development. This ensures that all versions of sofware and language interpreters are consistent. Below are the significant components for the development containers. 
+To simplify development, we standardize the versions used across our development. This ensures that all versions of sofware and language interpreters are consistent. Below are the significant components for the development containers. Containers are managed by NRCan's CanmetENERGY Ottawa Housing and Buildings Group.
 
 | tag       | os-sdk | os-hpxml | python | ruby  | E+     |
 |-----------|--------|----------|--------|-------|--------|
