@@ -58,7 +58,7 @@ To run the CLI using the `docker run` command, follow these steps:
 1. **Run the Docker Container**:
     Use the `docker run` command to start a container and execute the CLI.
     ```sh
-    docker run --rm -it -v //c/test:/shared canmet/h2k_hpxml_container:latest cli run
+    docker run --rm -it -v //c/test:/shared canmet/model_dev_container:3.7.0 cli run
     ```
     Swtiches used:
     - `-v`: Mounts your local folder, in this case /c/test, to the shared folder in the container. 
@@ -69,7 +69,7 @@ To run the CLI using the `docker run` command, follow these steps:
  * **the hpxml file**: designated by the .xml extension, and all the conventional. 
  * **the energy plus files**: this includes the idf, and htm and msgpack files.  ***By default, it does not produce the sqlite files or the osm files, To enable this, add the --debug flag to the run command.***
 
- It will also create a file called 'processing_resutls.csv' which will show the files that succeeded or failed.
+ It will also create a file called 'processing_results.csv' which will show the files that succeeded or failed.
 
 
 Full help is available by issuing the run command with a -h. For example.
