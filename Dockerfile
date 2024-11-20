@@ -1,9 +1,9 @@
 # Base image compatible with the required OpenStudio version
-ARG OPENSTUDIO_VERSION=3.9.0
+ARG OPENSTUDIO_VERSION=3.7.0
 FROM canmet/os_sdk_container:${OPENSTUDIO_VERSION} AS base
 
 # Define versions for dependencies
-ARG OPENSTUDIO_HPXML_VERSION=1.9.0
+ARG OPENSTUDIO_HPXML_VERSION=1.7.0
 ARG H2K_HPXML_VERSION=1.7.0.1.1
 
 # Install OpenStudio-HPXML to /OpenStudio-HPXML
