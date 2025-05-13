@@ -61,8 +61,8 @@ To run the CLI using the `docker run` command, follow these steps:
     docker run --rm -it -v //c/test:/shared canmet/model_dev_container:3.9.0 cli run
     ```
     Swtiches used:
-    - `-v`: Mounts your local folder, in this case /c/test, to the shared folder in the container. 
-    - `--rm`: Automatically remove the container when it exits.
+    - `-v`: Mounts your local folder containing your h2k files, in this case your windows c:\test, to the shared folder in the linux  container. 
+    - `--rm`: Automatically remove the container when it exits. Keeps your system clean after runs.
     - `-it`: Run the container in interactive mode with a TTY.
 
 1.  By default the output is in the same folder provided, unless redirected using the output switch. It will create an output folder based on the name of the original h2k filename. The folder will contain
